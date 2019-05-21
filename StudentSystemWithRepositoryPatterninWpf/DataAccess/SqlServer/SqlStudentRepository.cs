@@ -2,6 +2,7 @@
 using StudentSystemWithRepositoryPatterninWpf.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,14 @@ namespace StudentSystemWithRepositoryPatterninWpf.DataAccess.SqlServer
 
         public void AddData(Student data)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(db.ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    db.AddCommandToTransaction(cmd);
+                }
+            }
         }
 
         public void DeleteData(Student data)

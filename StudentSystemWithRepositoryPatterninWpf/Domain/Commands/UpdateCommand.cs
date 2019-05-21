@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentSystemWithRepositoryPatterninWpf.Domain.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,11 @@ namespace StudentSystemWithRepositoryPatterninWpf.Domain.Commands
     public class UpdateCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-
+        public StudentViewModel StudentViewModel { get; set; }
+        public UpdateCommand(StudentViewModel StudentViewModel)
+        {
+            this.StudentViewModel = StudentViewModel;
+        }
         public bool CanExecute(object parameter)
         {
             return true;
