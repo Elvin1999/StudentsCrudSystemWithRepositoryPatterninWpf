@@ -28,44 +28,44 @@ namespace StudentSystemWithRepositoryPatterninWpf.Domain.ViewModels
                 OnPropertyChanged(new PropertyChangedEventArgs(nameof(AllStudents)));
             }
         }
-        public BooksWindow BooksWindow { get; set; }
+
         public StudentViewModel()
         {
-            CurrentBook = new Book();
+            CurrentStudent = new Student();
         }
-        private Book currentBook;
-        public Book CurrentStudent
+        private Student currentStudent;
+        public Student CurrentStudent
         {
             get
             {
-                return currentBook;
+                return currentStudent;
             }
             set
             {
-                currentBook = value;
-                OnPropertyChanged(new PropertyChangedEventArgs(nameof(CurrentBook)));
+                currentStudent = value;
+                OnPropertyChanged(new PropertyChangedEventArgs(nameof(CurrentStudent)));
             }
         }
 
-        private Book selectedBook;
-        public Book SelectedBook
+        private Student selectedStudent;
+        public Student SelectedStudent
         {
             get
             {
 
-                return selectedBook;
+                return selectedStudent;
             }
             set
             {
-                selectedBook = value;
+                selectedStudent = value;
 
 
                 if (value != null)
                 {
-                    State = 1;
-                    CurrentBook = SelectedBook.Clone();
+
+                    CurrentStudent = SelectedStudent.Clone();
                 }
-                OnPropertyChanged(new PropertyChangedEventArgs(nameof(SelectedBook)));
+                OnPropertyChanged(new PropertyChangedEventArgs(nameof(SelectedStudent)));
             }
         }
     }

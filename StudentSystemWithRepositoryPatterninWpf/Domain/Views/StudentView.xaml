@@ -22,10 +22,10 @@
                     <Label Width="110" Content="IsMonitor" FontSize="20" FontFamily="Comic Sans MS"></Label>
                 </StackPanel>
                 <StackPanel Margin="5,10,0,0">
-                    <TextBox Width="110" FontSize="20" Margin="0,10,0,0"></TextBox>
-                    <TextBox Width="110" FontSize="20" Margin="0,10,0,0"></TextBox>
-                    <TextBox Width="110" FontSize="20" Margin="0,10,0,0"></TextBox>
-                    <CheckBox Width="110" FontSize="20" Margin="10,10,0,0"></CheckBox>
+                    <TextBox Width="110" FontSize="20" Margin="0,10,0,0" Text="{Binding CurrentStudent.Name,Mode=TwoWay}"></TextBox>
+                    <TextBox Width="110" FontSize="20" Margin="0,10,0,0" Text="{Binding CurrentStudent.Surname,Mode=TwoWay}"></TextBox>
+                    <TextBox Width="110" FontSize="20" Margin="0,10,0,0" Text="{Binding CurrentStudent.Age,Mode=TwoWay}"></TextBox>
+                    <CheckBox Width="110" FontSize="20" Margin="10,10,0,0" IsChecked="{Binding CurrentStudent.IsMonitor,Mode=TwoWay}"></CheckBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel>

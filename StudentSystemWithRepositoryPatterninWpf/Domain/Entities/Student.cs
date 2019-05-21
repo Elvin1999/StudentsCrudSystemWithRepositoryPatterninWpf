@@ -15,6 +15,20 @@ namespace StudentSystemWithRepositoryPatterninWpf.Domain.Entities
         public int Age { get; set; }
         public bool IsMonitor { get; set; }
         public string Monitor { get; set; }
+
+        public Student Clone()
+        {
+            Student student = new Student() {
+                Id=this.Id,
+                No=this.No,
+                Name=this.Name,
+                Surname=this.Surname,
+                Age=this.Age,
+                Monitor=this.Monitor,
+                IsMonitor=this.IsMonitor
+            };
+            return student;
+        }
     }
 }
 
