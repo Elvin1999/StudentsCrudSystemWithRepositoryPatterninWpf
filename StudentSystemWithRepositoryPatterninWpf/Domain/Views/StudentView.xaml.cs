@@ -11,22 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentSystemWithRepositoryPatterninWpf
+namespace StudentSystemWithRepositoryPatterninWpf.Domain.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StudentView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StudentView : Window
     {
-        
-        public MainWindow()
+        public StudentViewModel StudentViewModel { get; set; }
+        public StudentView(StudentViewModel StudentViewModel)
         {
             InitializeComponent();
-            MainViewModel mainViewModel = new MainViewModel();
-            DataContext = mainViewModel;
+            this.StudentViewModel = StudentViewModel;
         }
     }
 }

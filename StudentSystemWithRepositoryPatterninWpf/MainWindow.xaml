@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <Button Width="150" Height="40" Content="Show" Margin="100" Background="BlueViolet" FontSize="24"
+                   Command="{Binding ShowCommand}" 
+                    >
+                
+  
+                
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
