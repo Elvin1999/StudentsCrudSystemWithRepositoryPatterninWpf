@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentSystemWithRepositoryPatterninWpf.Domain.Abstraction
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
         void SaveChanges();
         IStudentRepository StudentRepository { get; }

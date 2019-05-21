@@ -19,7 +19,6 @@ namespace StudentSystemWithRepositoryPatterninWpf.DataAccess.SqlServer
             ConnectionString = connString;
             context = new SqlContext(this);
         }
-
         public void EnqueueCommand(SqlCommand cmd)
         {
             commands.Enqueue(cmd);
@@ -53,10 +52,6 @@ namespace StudentSystemWithRepositoryPatterninWpf.DataAccess.SqlServer
 
             }
         }
-
-
-       
-
         public IStudentRepository StudentRepository => new SqlStudentRepository(context);
     }
 }

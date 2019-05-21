@@ -26,6 +26,7 @@ namespace StudentSystemWithRepositoryPatterninWpf.Domain.Commands
         public void Execute(object parameter)
         {
             StudentViewModel studentViewModel = new StudentViewModel();
+            studentViewModel.AllStudents = App.DB.StudentRepository.GetAllData();
             StudentView studentView = new StudentView(studentViewModel);
             studentView.ShowDialog();
         }

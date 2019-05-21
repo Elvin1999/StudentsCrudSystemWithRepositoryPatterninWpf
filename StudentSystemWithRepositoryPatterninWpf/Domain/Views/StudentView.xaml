@@ -42,7 +42,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Background="LightGreen">
-            <DataGrid>
+            <DataGrid ItemsSource="{Binding AllStudents}">
                 
             </DataGrid>
         </Grid>

@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace StudentSystemWithRepositoryPatterninWpf.Domain.Views
 {
     /// <summary>
@@ -25,6 +24,12 @@ namespace StudentSystemWithRepositoryPatterninWpf.Domain.Views
         {
             InitializeComponent();
             this.StudentViewModel = StudentViewModel;
+
+            
+            DataContext = StudentViewModel;
         }
     }
 }
+
+
+

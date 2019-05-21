@@ -27,6 +27,8 @@ namespace StudentSystemWithRepositoryPatterninWpf
             InitializeComponent();
             MainViewModel mainViewModel = new MainViewModel();
             DataContext = mainViewModel;
+
+            
         }
     }
 }

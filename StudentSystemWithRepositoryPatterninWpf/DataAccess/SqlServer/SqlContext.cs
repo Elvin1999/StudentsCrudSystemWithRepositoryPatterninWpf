@@ -15,8 +15,8 @@ namespace StudentSystemWithRepositoryPatterninWpf.DataAccess.SqlServer
         public SqlContext(SqlUnitOfWork db)
         {
             this.db = db;
+            ConnectionString = db.ConnectionString;
         }
-
         public void AddCommandToTransaction(SqlCommand cmd)
         {
             db.EnqueueCommand(cmd);
