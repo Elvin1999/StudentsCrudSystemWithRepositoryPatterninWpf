@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StudentSystemWithRepositoryPatterninWpf.DataAccess.SqlServer
 {
@@ -87,32 +88,42 @@ namespace StudentSystemWithRepositoryPatterninWpf.DataAccess.SqlServer
 
         public ObservableCollection<Student> GetAllData()
         {
-            
+
+            ObservableCollection<Student> students = new ObservableCollection<Student>();
             using (SqlConnection conn = new SqlConnection(db.ConnectionString))
             {
-                conn.Open();
-                string cmdText = "select * from Students";
-                using (SqlCommand cmd = new SqlCommand(cmdText, conn))
+                try
                 {
-                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    ObservableCollection<Student> students = new ObservableCollection<Student>();
-                    while (reader.Read())
+                    conn.Open();
+                    string cmdText = "select * from Students";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, conn))
                     {
-                        Student student = new Student();
-                        
+                        SqlDataReader reader = cmd.ExecuteReader();
 
-                        student.Id = Convert.ToInt32(reader[nameof(student.Id)]);
-                        student.Name = Convert.ToString(reader[nameof(student.Name)]);
-                        student.Surname = Convert.ToString(reader[nameof(student.Surname)]);
-                        student.Age = Convert.ToInt32(reader[nameof(student.Age)]);
-                        student.IsMonitor= Convert.ToBoolean(reader[nameof(student.IsMonitor)]);                   
-                        students.Add(student);
+                        while (reader.Read())
+                        {
+                            Student student = new Student();
+
+
+                            student.Id = Convert.ToInt32(reader[nameof(student.Id)]);
+                            student.Name = Convert.ToString(reader[nameof(student.Name)]);
+                            student.Surname = Convert.ToString(reader[nameof(student.Surname)]);
+                            student.Age = Convert.ToInt32(reader[nameof(student.Age)]);
+                            student.IsMonitor = Convert.ToBoolean(reader[nameof(student.IsMonitor)]);
+                            students.Add(student);
+                        }
+
+
                     }
-                    return students;
-
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
+            return students;
         }
 
         public Student GetData(int id)
